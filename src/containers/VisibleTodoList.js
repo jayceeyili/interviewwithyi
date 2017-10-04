@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
 
-const getVisibleTodos = (todos, filter) => {
+const getVisibleTodos = (todos, groups, filter) => {
   switch (filter) {
     case 'SHOW_ALL':
       return todos
@@ -10,17 +10,13 @@ const getVisibleTodos = (todos, filter) => {
       return todos.filter(t => t.completed)
     case 'SHOW_ACTIVE':
       return todos.filter(t => !t.completed)
-    case 'FAMILY':
-      return todos.filter(t => t.group === 'Famlily')
-    case 'WORK':
-      return todos.filter(t => t.group === 'Work')
     default:
-      throw new Error('Unknown filter: ' + filter)
+      return todos.filter(t => t.group === filter);
   }
 }
 
 const mapStateToProps = (state) => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  todos: getVisibleTodos(state.todos, state.groups, state.visibilityFilter)
 })
 
 const mapDispatchToProps = {
@@ -33,3 +29,5 @@ const VisibleTodoList = connect(
 )(TodoList)
 
 export default VisibleTodoList
+
+// throw new Error('Unknown filter: ' + filter)

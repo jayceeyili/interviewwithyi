@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from './Footer'
+import Footer from '../containers/Footer'
 import AddTodo from '../containers/AddTodo'
 import AddGroup from '../containers/AddGroup'
 import VisibleTodoList from '../containers/VisibleTodoList'
