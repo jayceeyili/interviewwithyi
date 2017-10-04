@@ -27,4 +27,4 @@ let AddGroup = ({ dispatch }) => {
 }
 AddGroup = connect()(AddGroup)
 
-export default AddTodo
+export default AddGroup;
