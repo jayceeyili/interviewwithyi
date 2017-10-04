@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
-let AddTodo = ({ dispatch }) => {
+let AddTodo = ({ dispatch, groups }) => {
   let input, select;
 
   return (
@@ -18,8 +18,9 @@ let AddTodo = ({ dispatch }) => {
         <select ref={node => {
             select = node
           }}>
-          <option value='Famlily'>Famlily</option>
-          <option value='Work'>Work</option>
+          { groups.map((group, i) => (
+            <option value={group.text} key={i}>{ group.text }</option>
+          ))}
         </select>
         <input ref={node => {
           input = node
@@ -31,6 +32,11 @@ let AddTodo = ({ dispatch }) => {
     </div>
   )
 }
-AddTodo = connect()(AddTodo)
+
+const mapStateToProps = (state) => ({
+  groups: state.groups
+})
+
+AddTodo = connect(mapStateToProps)(AddTodo)
 
 export default AddTodo

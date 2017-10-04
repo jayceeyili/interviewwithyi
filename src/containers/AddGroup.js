@@ -25,6 +25,11 @@ let AddGroup = ({ dispatch }) => {
     </div>
   )
 }
-AddGroup = connect()(AddGroup)
+
+const mapStateToProps = (state) => ({
+  group: state.groups
+})
+
+AddGroup = connect(mapStateToProps)(AddGroup)
 
 export default AddGroup;
