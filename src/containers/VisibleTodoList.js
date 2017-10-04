@@ -10,6 +10,10 @@ const getVisibleTodos = (todos, filter) => {
       return todos.filter(t => t.completed)
     case 'SHOW_ACTIVE':
       return todos.filter(t => !t.completed)
+    case 'FAMILY':
+      return todos.filter(t => t.group === 'Famlily')
+    case 'WORK':
+      return todos.filter(t => t.group === 'Work')
     default:
       throw new Error('Unknown filter: ' + filter)
   }

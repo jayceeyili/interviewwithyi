@@ -1,9 +1,18 @@
 let nextTodoId = 0
-export const addTodo = (text) => ({
+export const addTodo = (text, group) => ({
   type: 'ADD_TODO',
   id: nextTodoId++,
-  text
+  text,
+  group
 })
+
+export const addGroup = (text, color) => (
+  {
+    type: 'ADD_GROUP',
+    text,
+    color
+  }
+)
 
 export const setVisibilityFilter = (filter) => ({
   type: 'SET_VISIBILITY_FILTER',

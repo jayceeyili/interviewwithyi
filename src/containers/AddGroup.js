@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addGroup } from '../actions'
 
-let AddTodo = ({ dispatch }) => {
-  let input, select;
+let AddGroup = ({ dispatch }) => {
+  let input
 
   return (
     <div>
@@ -12,25 +12,19 @@ let AddTodo = ({ dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(addTodo(input.value, select.value))
+        dispatch(addGroup(input.value))
         input.value = ''
       }}>
-        <select ref={node => {
-            select = node
-          }}>
-          <option value='Famlily'>Famlily</option>
-          <option value='Work'>Work</option>
-        </select>
         <input ref={node => {
           input = node
         }} />
         <button type="submit">
-          Add Todo
+          Add Group
         </button>
       </form>
     </div>
   )
 }
-AddTodo = connect()(AddTodo)
+AddGroup = connect()(AddGroup)
 
 export default AddTodo

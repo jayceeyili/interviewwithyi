@@ -16,6 +16,14 @@ const Footer = () => (
     <FilterLink filter="SHOW_COMPLETED">
       Completed
     </FilterLink>
+    {", "}
+    <FilterLink filter="FAMILY">
+      FAMILY
+    </FilterLink>
+    {", "}
+    <FilterLink filter="WORK">
+      WORK
+    </FilterLink>
   </p>
 )
 
