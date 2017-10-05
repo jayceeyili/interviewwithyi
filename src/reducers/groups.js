@@ -1,12 +1,10 @@
-const groups = (state = [], action) => {
+const groups = (state = [{text: 'Family'}], action) => {
   switch (action.type) {
     case 'ADD_GROUP':
-      console.log(action);
       return [
         ...state,
         {
           text: action.text,
-          color: 'red'
         }
       ]
     // case 'TOGGLE_TODO':
@@ -20,4 +18,4 @@ const groups = (state = [], action) => {
   }
 }
 
-export default groups; 
+export default groups;

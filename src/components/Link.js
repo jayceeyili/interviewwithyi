@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Item } from 'semantic-ui-react'
 
 const Link = ({ active, children, onClick }) => {
   if (active) {
@@ -8,14 +9,14 @@ const Link = ({ active, children, onClick }) => {
 
   return (
     // eslint-disable-next-line
-    <a href="#"
-       onClick={e => {
-         e.preventDefault()
-         onClick()
-       }}
-    >
+    <Item.Content
+      onClick={e => {
+        e.preventDefault()
+        onClick()
+      }}
+      >
       {children}
-    </a>
+    </Item.Content>
   )
 }
 
@@ -26,3 +27,14 @@ Link.propTypes = {
 }
 
 export default Link
+
+
+
+// <a href="#"
+//   onClick={e => {
+//     e.preventDefault()
+//     onClick()
+//   }}
+//   >
+//   {children}
+// </a>

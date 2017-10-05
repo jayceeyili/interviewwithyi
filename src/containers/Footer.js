@@ -1,42 +1,32 @@
 import React from 'react'
 import FilterLink from './FilterLink'
 import { connect } from 'react-redux'
+import { Menu } from 'semantic-ui-react'
 
 let Footer = ({ dispatch, groups }) => {
 
   return (
-    <p>
-      Show:
-      {" "}
-      <FilterLink filter="SHOW_ALL">
-        All
-      </FilterLink>
-      {", "}
-      <FilterLink filter="SHOW_ACTIVE">
-        Active
-      </FilterLink>
-      {", "}
-      <FilterLink filter="SHOW_COMPLETED">
-        Completed
-      </FilterLink>
-      {", "}
-      {groups.map((group, i) => (
-        <FilterLink filter={group.text} key={i}>
-          { group.text }
+    <Menu borderless size='large' secondary >
+      <Menu.Item  color='grey'/>
+      <Menu.Item link>
+        <FilterLink filter="SHOW_ALL">
+          All
         </FilterLink>
-      ))}
-    </p>
+      </Menu.Item>
+      <Menu.Item link>
+        <FilterLink filter="SHOW_ACTIVE">
+          Active
+        </FilterLink>
+      </Menu.Item>
+      <Menu.Item link>
+        <FilterLink filter="SHOW_COMPLETED">
+          Completed
+        </FilterLink>
+      </Menu.Item>
+    </Menu>
   )
 }
 
 Footer = connect( state => ({groups: state.groups}))(Footer)
 
 export default Footer;
-
-// <FilterLink filter="FAMILY">
-// FAMILY
-// </FilterLink>
-// {", "}
-// <FilterLink filter="WORK">
-// WORK
-// </FilterLink>

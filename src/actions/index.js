@@ -14,6 +14,11 @@ export const addGroup = (text, color) => (
   }
 )
 
+export const selectGroup = (group) => ({
+  type: 'SELECT_GROUP',
+  group
+})
+
 export const setVisibilityFilter = (filter) => ({
   type: 'SET_VISIBILITY_FILTER',
   filter

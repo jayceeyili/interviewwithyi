@@ -1,40 +1,43 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
+import { Button, Modal, Input, Label } from 'semantic-ui-react'
 
-let AddTodo = ({ dispatch, groups }) => {
-  let input, select;
-
+let AddTodo = ({ dispatch, group }) => {
+  let input;
   return (
-    <div>
-      <form onSubmit={e => {
-        e.preventDefault()
-        if (!input.value.trim()) {
-          return
-        }
-        dispatch(addTodo(input.value, select.value))
-        input.value = ''
-      }}>
-        <select ref={node => {
-            select = node
-          }}>
-          { groups.map((group, i) => (
-            <option value={group.text} key={i}>{ group.text }</option>
-          ))}
-        </select>
-        <input ref={node => {
-          input = node
-        }} />
-        <button type="submit">
-          Add Todo
-        </button>
-      </form>
-    </div>
+    <Modal trigger={<Button color='green' icon='plus'/>} dimmer size='large'>
+      <Modal.Content>
+        <form onSubmit={e => {
+          e.preventDefault()
+          if (!input.value.trim()) {
+            return
+          }
+          dispatch(addTodo(input.value, group.group))
+          input.value = ''
+        }}>
+          <Input
+            type='text'
+            placeholder='Add ToDo'
+            action
+            fluid
+          >
+          <Label color='teal' pointing='right'>{group.group}</Label>
+            <input ref={node => {
+              input = node
+            }} />
+            <Button type="submit">
+              Add
+            </Button>
+          </Input>
+        </form>
+      </Modal.Content>
+    </Modal>
   )
 }
 
 const mapStateToProps = (state) => ({
-  groups: state.groups
+  group: state.selectGroup
 })
 
 AddTodo = connect(mapStateToProps)(AddTodo)

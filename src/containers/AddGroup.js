@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addGroup } from '../actions'
+import { Button, Input, Segment } from 'semantic-ui-react'
 
 let AddGroup = ({ dispatch }) => {
   let input
 
   return (
-    <div>
+    <Segment inverted color='grey'>
       <form onSubmit={e => {
         e.preventDefault()
         if (!input.value.trim()) {
@@ -15,14 +16,19 @@ let AddGroup = ({ dispatch }) => {
         dispatch(addGroup(input.value))
         input.value = ''
       }}>
-        <input ref={node => {
-          input = node
-        }} />
-        <button type="submit">
-          Add Group
-        </button>
+        <Input
+          type='text'
+          placeholder='Add Group'
+          action
+          fluid
+        >
+          <input ref={node => {
+            input = node
+          }} />
+          <Button type="submit"  icon='plus'/>
+        </Input>
       </form>
-    </div>
+    </Segment>
   )
 }
 
