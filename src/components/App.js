@@ -4,7 +4,7 @@ import AddTodo from '../containers/AddTodo'
 import AddGroup from '../containers/AddGroup'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import Groups from '../containers/Groups'
-import { Grid, Menu, Segment } from 'semantic-ui-react'
+import { Grid, Menu } from 'semantic-ui-react'
 import '../App.css'
 
 const App = () => (
