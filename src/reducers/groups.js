@@ -1,4 +1,10 @@
-const groups = (state = [{text: 'Family'}], action) => {
+let initialState = [
+  {text: 'Family'},
+  {text: 'Work'},
+  {text: 'Social'}
+]
+
+const groups = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_GROUP':
       return [
@@ -7,12 +13,6 @@ const groups = (state = [{text: 'Family'}], action) => {
           text: action.text,
         }
       ]
-    // case 'TOGGLE_TODO':
-    //   return state.map(todo =>
-    //     (todo.id === action.id)
-    //       ? {...todo, completed: !todo.completed}
-    //       : todo
-    //   )
     default:
       return state
   }

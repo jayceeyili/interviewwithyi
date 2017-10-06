@@ -4,18 +4,19 @@ import AddTodo from '../containers/AddTodo'
 import AddGroup from '../containers/AddGroup'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import Groups from '../containers/Groups'
-import { Grid, Menu } from 'semantic-ui-react'
+import { Grid, Menu, Segment } from 'semantic-ui-react'
 import '../App.css'
 
 const App = () => (
   <div className='app'>
     <Grid celled='internally'>
       <Grid.Row>
-        <Grid.Column width={4}>
+        <Grid.Column width={5}>
           <AddGroup />
         </Grid.Column>
-        <Grid.Column width={12}>
-          <Menu borderless fluid secondary>
+        <Grid.Column width={11}>
+          <Menu borderless fluid secondary >
+            <Menu.Item icon='list ul'/>
             <Menu.Item>
               <Footer />
             </Menu.Item>
@@ -26,10 +27,10 @@ const App = () => (
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column width={4}>
+        <Grid.Column width={5}>
           <Groups />
         </Grid.Column>
-        <Grid.Column width={12}>
+        <Grid.Column width={11}>
           <VisibleTodoList />
         </Grid.Column>
       </Grid.Row>

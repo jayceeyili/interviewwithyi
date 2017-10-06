@@ -1,22 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Item } from 'semantic-ui-react'
+import { List } from 'semantic-ui-react'
 
 const Link = ({ active, children, onClick }) => {
   if (active) {
-    return <span>{children}</span>
+    return (
+      <div>
+        <List.Item >
+          <List.Content>{children}</List.Content>
+          <List.Icon name='circle thin'/>
+        </List.Item>
+      </div>
+    )
   }
 
   return (
     // eslint-disable-next-line
-    <Item.Content
-      onClick={e => {
-        e.preventDefault()
-        onClick()
-      }}
+    <div>
+      <List.Item
+        onClick={e => {
+          e.preventDefault()
+          onClick()
+        }}
       >
-      {children}
-    </Item.Content>
+      <List.Content>
+        {children}
+      </List.Content>
+      </List.Item>
+    </div>
   )
 }
 
@@ -27,14 +38,3 @@ Link.propTypes = {
 }
 
 export default Link
-
-
-
-// <a href="#"
-//   onClick={e => {
-//     e.preventDefault()
-//     onClick()
-//   }}
-//   >
-//   {children}
-// </a>

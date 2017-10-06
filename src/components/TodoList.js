@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
+import { List } from 'semantic-ui-react'
 
 const TodoList = ({ todos, onTodoClick }) => (
-  <ul>
+  <List size='big' inverted>
     {todos.map(todo =>
       <Todo
         key={todo.id}
@@ -11,7 +12,7 @@ const TodoList = ({ todos, onTodoClick }) => (
         onClick={() => onTodoClick(todo.id)}
       />
     )}
-  </ul>
+  </List>
 )
 
 TodoList.propTypes = {
