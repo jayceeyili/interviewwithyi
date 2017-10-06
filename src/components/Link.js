@@ -8,7 +8,7 @@ const Link = ({ active, children, onClick }) => {
       <div>
         <List.Item >
           <List.Content>{children}</List.Content>
-          <List.Icon name='circle thin'/>
+          <List.Icon name='circle'/>
         </List.Item>
       </div>
     )
