@@ -22,7 +22,7 @@ let AddTodo = ({ dispatch, group }) => {
             action
             fluid
           >
-          <Label color='teal' pointing='right'>{group.group}</Label>
+          <Label color='teal' pointing='right'>You are at: {group.group}</Label>
             <input ref={node => {
               input = node
             }} />

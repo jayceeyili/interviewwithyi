@@ -1,19 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
-import { List } from 'semantic-ui-react'
+import img from '../todo.jpg'
+import { List, Image } from 'semantic-ui-react'
 
-const TodoList = ({ todos, onTodoClick }) => (
-  <List size='big' inverted>
-    {todos.map(todo =>
-      <Todo
-        key={todo.id}
-        {...todo}
-        onClick={() => onTodoClick(todo.id)}
-      />
-    )}
-  </List>
-)
+const TodoList = ({ todos, onTodoClick }) => {
+  const empty = todos.length === 0;
+
+  return (
+    <div>
+      {empty ? (
+        <Image src={img} className='img' />
+      ) : (
+      <List >
+        {todos.map(todo =>
+          <Todo
+            key={todo.id}
+            {...todo}
+            onClick={() => onTodoClick(todo.id)}
+            />
+        )}
+      </List>
+      )}
+    </div>
+)}
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({

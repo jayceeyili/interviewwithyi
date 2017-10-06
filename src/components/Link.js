@@ -1,33 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { List } from 'semantic-ui-react'
+import { List, Segment } from 'semantic-ui-react'
 
 const Link = ({ active, children, onClick }) => {
   if (active) {
     return (
-      <div>
-        <List.Item >
-          <List.Content>{children}</List.Content>
-          <List.Icon name='circle'/>
-        </List.Item>
-      </div>
+      <Segment as={List.Item}
+        color={active ? 'red' : ''}
+        secondary
+        textAlign='center'>
+        {children}
+      </Segment>
     )
   }
 
   return (
     // eslint-disable-next-line
-    <div>
-      <List.Item
-        onClick={e => {
-          e.preventDefault()
-          onClick()
-        }}
-      >
-      <List.Content>
-        {children}
-      </List.Content>
-      </List.Item>
-    </div>
+    <Segment as={List.Item}
+      onClick={e => {
+        e.preventDefault()
+        onClick()
+      }}
+      textAlign='center'
+    >
+      {children}
+    </Segment>
   )
 }
 

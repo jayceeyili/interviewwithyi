@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addGroup } from '../actions'
-import { Button, Input, Segment, Responsive } from 'semantic-ui-react'
+import { Button, Input, Segment } from 'semantic-ui-react'
 
 let AddGroup = ({ dispatch }) => {
   let input
@@ -18,7 +18,7 @@ let AddGroup = ({ dispatch }) => {
       }}>
         <Input
           type='text'
-          placeholder='Add Group'
+          placeholder='Group'
           action
           fluid
         >
