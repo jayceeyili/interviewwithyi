@@ -11,10 +11,10 @@ const App = () => (
   <div className='app'>
     <Grid celled='internally'>
       <Grid.Row>
-        <Grid.Column width={5}>
+        <Grid.Column widescreen={2} largeScreen={2} computer={3} tablet={4} mobile={4}>
           <AddGroup />
         </Grid.Column>
-        <Grid.Column width={11}>
+        <Grid.Column widescreen={14} largeScreen={14} computer={13} tablet={12} mobile={12}>
           <Menu borderless fluid secondary >
             <Menu.Item icon='list ul'/>
             <Menu.Item>
@@ -27,10 +27,10 @@ const App = () => (
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column width={5}>
+        <Grid.Column widescreen={2} largeScreen={2} computer={3} tablet={4} mobile={4}>
           <Groups />
         </Grid.Column>
-        <Grid.Column width={11}>
+        <Grid.Column widescreen={14} largeScreen={14} computer={13} tablet={12} mobile={12}>
           <VisibleTodoList />
         </Grid.Column>
       </Grid.Row>
