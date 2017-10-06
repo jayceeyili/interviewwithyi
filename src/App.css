@@ -1,10 +1,7 @@
 .app {
-  margin: 3%;
-  text-align: center;
-  max-width: 1200px;
-  min-width: 30%;
+  background: white;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	margin: 3%;
+	position: relative;
+	width: 70%;
 }
